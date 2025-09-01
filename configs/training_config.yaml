@@ -1,0 +1,41 @@
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 50
+  weight_decay: 0.0001
+  
+  # Data splits
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  
+  # Optimization
+  optimizer: "adam"
+  scheduler: "cosine"
+  warmup_epochs: 5
+  
+  # Early stopping
+  patience: 10
+  min_delta: 0.001
+  
+  # Checkpointing
+  save_every: 5
+  checkpoint_dir: "models/checkpoints"
+  
+datasets:
+  chestx_ray14:
+    data_dir: "data/raw/chestx_ray14"
+    csv_file: "Data_Entry_2017.csv"
+    image_dir: "images"
+    
+  mimic_cxr:
+    data_dir: "data/raw/mimic_cxr"
+    csv_file: "mimic-cxr-2.0.0-metadata.csv"
+    image_dir: "files"
+    
+augmentation:
+  rotation_range: 10
+  zoom_range: 0.1
+  horizontal_flip: false
+  brightness_range: 0.1
+  contrast_range: 0.1
